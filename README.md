@@ -1,4 +1,4 @@
-# CIS3760 Inflation Project
+# Inflation Project
 
 Web app that displays Reddit and Twitter posts about inflation. 
 Currently in Sprint 5.
