@@ -22,9 +22,10 @@ Currently in Sprint 5.
 ## Credits
 
 Project Manager:
-Issa
+Abdullah
 
 Developers:
 Joseph,
 Luc,
-Bladen
+Bladen,
+Abdullah
