@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: yiktik-staging-mongo-statefulset
+  namespace: yiktik-staging
+spec:
+  replicas: 1
+  serviceName: yiktik-staging-mongo-service
+  selector:
+    matchLabels:
+      app: yiktik-mongo
+  template:
+    metadata:
+      labels:
+        app: yiktik-mongo
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: yiktik-mongo
+
+          # image: yiktik-mongo
+          # imagePullPolicy: Never # Comment out the imagePullPolicy field if you are NOT running locally. Otherwise, set it to Never.
+
+          image: registry.socs.uoguelph.ca/3760w23/t1/yiktik/inflation_project/mongo:staging
+          imagePullPolicy: Always
+
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: yiktik-mongo-secrets
+                  key: mongo-initdb-root-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: yiktik-mongo-secrets
+                  key: mongo-initdb-root-password
+            - name: MONGO_INITDB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: yiktik-staging-configmap
+                  key: mongo-initdb-database
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-persistent-storage
+              mountPath: /data/db
+      imagePullSecrets:
+        - name: regcred # TODO: replace this with your image pull secret name
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-persistent-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi

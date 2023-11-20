@@ -1,0 +1,113 @@
+.card-container {
+  display: grid;
+  gap: 20px;
+  padding: 50px;
+}
+
+.card {
+  pointer-events: auto; 
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card a {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: #333333;
+  text-decoration: none;
+  position: relative;
+}
+
+.card a:hover {
+  color: #666666;
+}
+
+.card p {
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+  margin: 0;
+  padding: 10px;
+  text-align: right;
+  color: #999999;
+  font-size: 18px;
+}
+
+.card-container.small {
+  grid-auto-rows: 125px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.card.small {
+  font-size: 14px;
+}
+.card.small p {
+  font-size: 14px;
+}
+
+.card-container.medium {
+  grid-auto-rows: 150px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card-container.large {
+  grid-auto-rows: 200px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+.card.large {
+  font-size: 22px;
+}
+.card.large p {
+  font-size: 22px;
+}
+
+.card-container.row {
+  grid-auto-rows: 60px;
+  grid-template-columns: repeat(1, minmax(100px, 1fr));
+}
+
+.card .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4%;
+  height: 100%;
+  transform: skew(-30deg);
+  transform-origin: top left;
+  background-color: #00abec;
+  z-index: 0;
+}
+
+.card .banner.red {
+  background-color: #ff5700;
+}
+
+.card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.card.fade-out {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.card.fade-in {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: auto;
+}

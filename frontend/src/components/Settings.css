@@ -1,0 +1,53 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0px;
+}
+
+.exit-button {
+  cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 1.5rem;
+}
+
+.submit-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.submit-button {
+  background-color: #2a9d8f;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #247f6a;
+}
+
+.modal-content input {
+  width: 50px;
+  height: 30px;
+  padding: 8px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 16px;
+  background-color: lightgrey;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

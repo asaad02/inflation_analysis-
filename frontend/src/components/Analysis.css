@@ -1,0 +1,23 @@
+.analysis {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sentimentchart > h3
+{
+    color: black;
+    margin-left: 20%;
+}
+
+
+.analysis.fade-out {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.analysis.fade-in {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: auto;
+}

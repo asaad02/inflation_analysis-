@@ -1,0 +1,16 @@
+.cloud {
+  display: flex;
+  justify-content: center;
+}
+
+.cloud.fade-out {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.cloud.fade-in {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: auto;
+}

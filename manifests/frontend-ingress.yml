@@ -1,0 +1,20 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: yiktik-staging-frontend-ingress
+  namespace: yiktik-staging
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: yiktik-staging.socs.uoguelph.ca # TODO: replace this with your application name with a frontend suffix
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: yiktik-staging-frontend-service
+                port:
+                  number: 80
+
